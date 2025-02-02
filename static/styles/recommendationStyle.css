@@ -39,6 +39,7 @@ header h1 a:hover {
 }
 
 /* Navigation */
+/*whole of nav*/
 nav {
     background-color: #1C1C1C; /* Dark navbar background */
     height: 60px;
@@ -57,6 +58,7 @@ nav {
     padding: 0 20px;
 }
 
+/*each box with contents within nav*/
 .navBox {
     display: flex;
     align-items: center;
@@ -64,6 +66,7 @@ nav {
     flex-grow: 1; /* Make the nav box take up remaining space */
 }
 
+/*links within nav*/
 .navBox a {
     color: #E0E0E0;
     text-decoration: none;
