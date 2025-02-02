@@ -18,6 +18,7 @@
         <!-- Navigation -->
         <nav>
             <div class="navContainer">
+                <!--nav links and buttons-->
                 <div class="navBox">
                     <a href="#">Discover</a>
                     <a href="#">Search</a>
@@ -25,6 +26,7 @@
                     <a href="#">Popular</a>
                     <button onclick="random()">Random??</button>
                 </div>
+                <!-- nav search bar-->
                 <div class="searchbar">
                     <form action="/search" method="post">
                         <input type="text" name="query" placeholder="Search here..." id="searchInput" />
@@ -45,7 +47,7 @@
                     <label for="category">Choose a category:</label>
                     <select id="category"></select>
                     <div class="step-buttons">
-                        <button class="prev-button hidden">Back</button> <!-- Back button -->
+                        <button class="prev-button hidden">Back</button>
                         <button id="next-category" class="next-button">Next</button>
                     </div>
                 </div>
@@ -55,7 +57,7 @@
                     <label for="brand">Choose a brand:</label>
                     <select id="brand"></select>
                     <div class="step-buttons">
-                        <button class="prev-button">Back</button> <!-- Back button -->
+                        <button class="prev-button">Back</button>
                         <button id="next-brand" class="next-button">Next</button>
                     </div>
                 </div>
@@ -67,7 +69,7 @@
                     <label for="max-budget">Maximum budget:</label>
                     <input id="max-budget" type="number" placeholder="Max">
                     <div class="step-buttons">
-                        <button class="prev-button">Back</button> <!-- Back button -->
+                        <button class="prev-button">Back</button>
                         <button id="next-budget" class="next-button">Next</button>
                     </div>
                 </div>
@@ -77,7 +79,7 @@
                     <label for="min-review">Minimum review score:</label>
                     <input id="min-review" type="number" placeholder="Min">
                     <div class="step-buttons">
-                        <button class="prev-button">Back</button> <!-- Back button -->
+                        <button class="prev-button">Back</button>
                         <button id="next-reviews" class="next-button">Next</button>
                     </div>
                 </div>
@@ -90,7 +92,7 @@
                         <option value="no">No</option>
                     </select>
                     <div class="step-buttons">
-                        <button class="prev-button">Back</button> <!-- Back button -->
+                        <button class="prev-button">Back</button>
                         <button id="submit-button" class="hidden">Submit</button>
                     </div>
                     <button id="retry-button" class="hidden">Retry</button>
@@ -137,9 +139,9 @@
             const steps = Array.from(document.querySelectorAll('.step'));
             const nextButtons = Array.from(document.querySelectorAll('.next-button'));
             const submitButton = document.getElementById('submit-button');
-            const retryButton = document.getElementById('retry-button'); // The retry button
+            const retryButton = document.getElementById('retry-button');
             const recommendationsList = document.getElementById('recommendations');
-            const recommendationsHeading = document.querySelector('h2'); // "Recommendations" heading
+            const recommendationsHeading = document.querySelector('h2');
 
             // Current step tracker
             let currentStep = 0;
@@ -216,7 +218,7 @@
 
                         recommendationsList.innerHTML = recommendations.length > 0
                             ? recommendations.map(r => {
-                                const imageUrl = `{{ url_for('static', filename='images/') }}${r.picture}`; // Dynamically create image URL
+                                const imageUrl = `{{ url_for('static', filename='images/') }}${r.picture}`;
                                 return `
                                     <li>
                                         <a href="/product/${r.id}">
@@ -232,7 +234,7 @@
 
                         // Hide the Back and Submit buttons
                         submitButton.classList.add('hidden');
-                        retryButton.classList.remove('hidden'); // Show the Retry button
+                        retryButton.classList.remove('hidden'); //Show the retry button
                     } catch (error) {
                         console.error('Error fetching recommendations:', error);
                         alert('There was an error processing your request. Please try again.');
